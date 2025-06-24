@@ -8,7 +8,7 @@ psycopg2-binary
 pymysql
 python-dotenv
 requests
-scikit-learn
+scikit-learn==1.6.1
 seaborn
 sqlalchemy
 sympy
