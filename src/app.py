@@ -45,23 +45,23 @@ def clean_column_values(column):
 # --- Cargar datos ---
 @st.cache_data
 def load_data():
-    df = pd.read_csv("data/data2_streamlit.csv")
-    model = joblib.load("models/knn_model.pkl")
+    df = pd.read_csv("../data/data2_streamlit.csv")
+    model = joblib.load("../models/knn_model.pkl")
 
     vectores = [
-        joblib.load(f"models/{col}_vect.pkl") for col in [
+        joblib.load(f"../models/{col}_vect.pkl") for col in [
             'title_clean', 'tagline_clean', 'production_companies_clean', 'overview_clean', 'keywords_clean']
     ]
 
-    escalado = joblib.load("models/numeric_minmax_scaler.pkl")
-    movie_vectors = load_npz("data/matrix_combinada.npz")
+    escalado = joblib.load("../models/numeric_minmax_scaler.pkl")
+    movie_vectors = load_npz("../data/matrix_combinada.npz")
 
-    actors_vectorizer = joblib.load('models/top_actors_clean_vect.pkl')
-    director_vectorizer = joblib.load('models/director_clean_vect.pkl')
-    genre_vectorizer = joblib.load("models/genres_clean_vect.pkl")
-    countries_vectorizer = joblib.load("models/production_countries_clean_vect.pkl")
-    languages_vectorizer = joblib.load("models/spoken_languages_clean_vect.pkl")
-    original_lang_vectorizer = joblib.load("models/original_language_clean_vect.pkl")
+    actors_vectorizer = joblib.load('../models/top_actors_clean_vect.pkl')
+    director_vectorizer = joblib.load('../models/director_clean_vect.pkl')
+    genre_vectorizer = joblib.load("../models/genres_clean_vect.pkl")
+    countries_vectorizer = joblib.load("../models/production_countries_clean_vect.pkl")
+    languages_vectorizer = joblib.load("../models/spoken_languages_clean_vect.pkl")
+    original_lang_vectorizer = joblib.load("../models/original_language_clean_vect.pkl")
 
     return df, model, vectores, escalado, movie_vectors, actors_vectorizer, director_vectorizer, genre_vectorizer, countries_vectorizer, languages_vectorizer, original_lang_vectorizer
 
